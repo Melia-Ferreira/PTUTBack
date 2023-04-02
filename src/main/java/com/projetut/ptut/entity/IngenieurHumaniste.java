@@ -1,8 +1,6 @@
 package com.projetut.ptut.entity;
 
-import jakarta.persistence.Basic;
-import jakarta.persistence.Column;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 
 public class IngenieurHumaniste {
@@ -19,9 +17,63 @@ public class IngenieurHumaniste {
     @Column(nullable = false)
     private int IdAction;
 
-    @Column(nullable = false)
+    @Id
+    @Basic(optional = false)
+    @Size(min = 4, max = 4)
+    @Column(nullable = false, length = 4)
+    private String IdPromo;
+
+    @Basic
+    @Column(name="Intitule")
     private String Intitule;
 
-    @Column(nullable = false)
+
+    @Basic
+    @Column(name="Description")
     private String Description;
+
+    public Integer getNumINU() {
+        return NumINU;
+    }
+
+    public void setNumINU(Integer numINU) {
+        NumINU = numINU;
+    }
+
+    public int getIdAction() {
+        return IdAction;
+    }
+
+    public void setIdAction(int idAction) {
+        IdAction = idAction;
+    }
+
+    public String getIntitule() {
+        return Intitule;
+    }
+
+    public void setIntitule(String intitule) {
+        Intitule = intitule;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
+    }
+
+    public String getIdPromo() {
+        return IdPromo;
+    }
+
+    public void setIdPromo(String idPromo) {
+        IdPromo = idPromo;
+    }
+
+
+    @ManyToMany
+    @JoinColumn(name = "IdPromo")
+    private Promotion promotion;
 }

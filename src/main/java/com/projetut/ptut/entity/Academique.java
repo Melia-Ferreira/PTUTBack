@@ -107,4 +107,10 @@ public class Academique {
     public void setToeic(Boolean toeic) {
         Toeic = toeic;
     }
+
+    @ManyToMany
+    @JoinColumn(name = "IdPromo")
+    private Promotion promotion;
+
+
 }

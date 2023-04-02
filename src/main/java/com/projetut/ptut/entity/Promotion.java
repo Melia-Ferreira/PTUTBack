@@ -1,10 +1,8 @@
 package com.projetut.ptut.entity;
 
-import jakarta.persistence.Basic;
-import jakarta.persistence.Column;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
+import org.hibernate.annotations.ManyToAny;
 
 import java.util.List;
 
@@ -21,4 +19,8 @@ public class Promotion {
 
     @OneToMany(mappedBy = "Etudiant")
     private List<Etudiant> etudiants;
+
+    @ManyToMany
+    @JoinColumn(name = "IdPromo")
+    private IngenieurHumaniste ingenieurHumaniste;
 }

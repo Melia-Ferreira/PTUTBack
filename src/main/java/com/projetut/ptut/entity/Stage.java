@@ -1,8 +1,6 @@
 package com.projetut.ptut.entity;
 
-import jakarta.persistence.Basic;
-import jakarta.persistence.Column;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 
 public class Stage {
@@ -19,20 +17,84 @@ public class Stage {
     @Column(nullable = false, length = 4)
     private String IdPromo;
 
-    @Column(nullable = false)
+    @Basic
+    @Column(name="Entreprise")
     private String Entreprise;
 
-    @Column(nullable = false)
-    private int Duree;
+    @Basic
+    @Column(name="Duree")
+    private String Duree;
 
-    @Column(nullable = false)
+    @Basic
+    @Column(name="Ville")
     private String Ville;
 
-    @Column(nullable = false)
+    @Basic
+    @Column(name="Pays")
     private String Pays;
 
-    @Column(nullable = false)
+    @Basic
+    @Column(name="Langue")
     private String Langue;
 
+    public Integer getNumINU() {
+        return NumINU;
+    }
+
+    public void setNumINU(Integer numINU) {
+        NumINU = numINU;
+    }
+
+    public String getIdPromo() {
+        return IdPromo;
+    }
+
+    public void setIdPromo(String idPromo) {
+        IdPromo = idPromo;
+    }
+
+    public String getEntreprise() {
+        return Entreprise;
+    }
+
+    public void setEntreprise(String entreprise) {
+        Entreprise = entreprise;
+    }
+
+    public String getDuree() {
+        return Duree;
+    }
+
+    public void setDuree(String duree) {
+        Duree = duree;
+    }
+
+    public String getVille() {
+        return Ville;
+    }
+
+    public void setVille(String ville) {
+        Ville = ville;
+    }
+
+    public String getPays() {
+        return Pays;
+    }
+
+    public void setPays(String pays) {
+        Pays = pays;
+    }
+
+    public String getLangue() {
+        return Langue;
+    }
+
+    public void setLangue(String langue) {
+        Langue = langue;
+    }
+
+    @OneToMany
+    @JoinColumn(name = "IdPrommo")
+    private Promotion promotion;
 }
 
