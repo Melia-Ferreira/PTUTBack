@@ -139,6 +139,4 @@ public class Etudiant {
     @ManyToOne
     @JoinColumn(name = "NumINU")
     private Stage stage;
-
-    // ca me soule test
 }
