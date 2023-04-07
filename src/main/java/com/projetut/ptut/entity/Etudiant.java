@@ -37,4 +37,7 @@ public class Etudiant {
 
     @ManyToOne
     private Stage stage;
+
+    @ManyToOne
+    private FIE1 fie1;
 }
